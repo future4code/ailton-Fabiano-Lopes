@@ -12,7 +12,7 @@
     
     
 //     a) Explique o que o código faz. Qual o teste que ele realiza? 
-//     Resposta Verificar se é pa ou impar
+//     Resposta Verificar se é par ou impar
     
 //     b) Para que tipos de números ele imprime no console "Passou no teste"?
 //     Resposta = Par 
@@ -175,114 +175,333 @@
 //     - Quantidade de ingressos
     
 //     O seu sistema deve solicitar estas informações ao usuário, através do `prompt` . Além disso, ele deve imprimir tudo isso, junto com o valor de cada ingresso e o valor total que o usuário tem que pagar (ou seja, o valor unitário do ingresso multiplicado pela quantidade). Abaixo, há a tabela com os valores de cada ingresso e exemplos de execução do programa. Lembrando que o valor de jogos internacionais é o mesmo de jogos domésticos, mas seus preços devem ser multiplicados pelo valor do dólar (considerar o dólar = R$4,10)
-
 let nome = prompt("Qual é o seu nome")
-let tipoJogo = prompt("Qual o tipo do jogo? IN = Internacional ou DO = Doméstico").toUpperCase()
-let etapaJogo = prompt("Qual a etapa do jogo? SF = SemiFinais, DT = Decisão Terceiro Lugar, FI = Final").toUpperCase()
+let jogo= {
+    tipoJogo: prompt("Qual o tipo do jogo? IN = Internacional ou DO = Doméstico").toUpperCase(),
+    etapaJogo: prompt("Qual a etapa do jogo? SF = SemiFinais, DT = Decisão Terceiro Lugar, FI = Final").toUpperCase()
+}
+let precoTicket = { sf1: 1320.00, sf2: 880.00, sf3: 550.00, sf4: 220.00, dt1: 660.00, dt2: 440.00, dt3: 330.00, dt4: 170.00,fi1: 1980.00, fi2: 1320.00, fi3: 880.00, fi4: 330.00}
 let categoria = Number (prompt("informe a categoria da seção da poltrona: 1,2,3,4"))
 let quantidadeIngresso = prompt("Informe quantos ingressos")
+if (jogo.tipoJogo === 'DO' ){ 
 
-
-if (tipoJogo === 'DO' ){
-
-    switch (etapaJogo){
+    switch (jogo.etapaJogo){
         case 'SF':
             switch (categoria){
                 case 1 :
-                    let valorIngresso = 1320.00 
                     console.log(`---Dados da compra---
  Nome do Cliente: ${nome}
- Etapa do Jogo: ${etapaJogo} Semi Finais
+ Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+ Etapa do Jogo: ${jogo.etapaJogo} Semi Finais
  Categoria: ${categoria}
  Quantidade de ingresso: ${quantidadeIngresso}
        ---Valores---
- Valor do Ingresso R$${valorIngresso}
- Valor total = R$${quantidadeIngresso * valorIngresso}
+ Valor do Ingresso R$${precoTicket.sf1}
+ Valor total = R$${quantidadeIngresso * precoTicket.sf1}
                         `)
                     break
                     case 2 :
-                    let valorIngresso1 = 880.00
                     console.log(`---Dados da compra---
  Nome do Cliente: ${nome}
+ Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+ Etapa do Jogo: ${jogo.etapaJogo} Semi Finais
+ Categoria: ${categoria}
+ Quantidade de ingresso: ${quantidadeIngresso}
+       ---Valores---
+ Valor do Ingresso R$${precoTicket.sf2}
+ Valor total = R$${quantidadeIngresso * precoTicket.sf2}
+                        `)
+                    break
+                    case 3 : 
+                    console.log(`---Dados da compra---
+ Nome do Cliente: ${nome}
+ Tipo do Jogo: ${jogo.tipoJogo} Doméstico
  Etapa do Jogo: ${etapaJogo} Semi Finais
  Categoria: ${categoria}
  Quantidade de ingresso: ${quantidadeIngresso}
        ---Valores---
- Valor do Ingresso R$${valorIngresso1}
- Valor total = R$${quantidadeIngresso * valorIngresso1}
+ Valor do Ingresso R$${precoTicket.sf3}
+ Valor total = R$${quantidadeIngresso * precoTicket.sf3}
                         `)
                     break
-                    case 3 :
-                    let valorIngresso2 = 550.00 
+                    case 4 : 
                     console.log(`---Dados da compra---
  Nome do Cliente: ${nome}
- Etapa do Jogo: ${etapaJogo} Semi Finais
+ Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+ Etapa do Jogo: ${jogo.etapaJogo} Semi Finais
  Categoria: ${categoria}
  Quantidade de ingresso: ${quantidadeIngresso}
        ---Valores---
- Valor do Ingresso R$${valorIngresso2}
- Valor total = R$${quantidadeIngresso * valorIngresso2}
+ Valor do Ingresso R$${precoTicket.sf4}
+ Valor total = R$${quantidadeIngresso * precoTicket.sf4}
                         `)
                     break
-                    case 4 :
-                    let valorIngresso3 = 220.00 
-                    console.log(`---Dados da compra---
- Nome do Cliente: ${nome}
- Etapa do Jogo: ${etapaJogo} Semi Finais
- Categoria: ${categoria}
- Quantidade de ingresso: ${quantidadeIngresso}
-       ---Valores---
- Valor do Ingresso R$${valorIngresso3}
- Valor total = R$${quantidadeIngresso * valorIngresso3}
-                        `)
-                    break
-                     
-            }
-
+                     }break
         case 'DT':
             switch (categoria){
-                case 1 :
-                    let valorIngressoDt = 660.00 
+                case 1 : 
                     console.log(`---Dados da compra---
  Nome do Cliente: ${nome}
- Etapa do Jogo: ${etapaJogo} Decisão terceiro lugar
+ Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+ Etapa do Jogo: ${jogo.etapaJogo} Decisão terceiro lugar
  Categoria: ${categoria}
  Quantidade de ingresso: ${quantidadeIngresso}
        ---Valores---
- Valor do Ingresso R$${valorIngressoDt}
- Valor total = R$${quantidadeIngresso * valorIngressoDt}
+ Valor do Ingresso R$${precoTicket.dt1}
+ Valor total = R$${quantidadeIngresso * precoTicket.dt1}
                         `)
                     break
-                    case 2 :
-                    let valorIngressoDt1 = 440.00 
+                    case 2:
                     console.log(`---Dados da compra---
  Nome do Cliente: ${nome}
- Etapa do Jogo: ${etapaJogo} Semi Finais
+ Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+ Etapa do Jogo: ${jogo.etapaJogo} Decisão terceiro lugar
  Categoria: ${categoria}
  Quantidade de ingresso: ${quantidadeIngresso}
        ---Valores---
- Valor do Ingresso R$${valorIngressoDt1}
- Valor total = R$${quantidadeIngresso * valorIngressoDt1}
+ Valor do Ingresso R$${precoTicket.dt2}
+ Valor total = R$${quantidadeIngresso * precoTicket.dt2}
                         `)
                     break
 
-                    case 3 :
-                        let valorIngressoDt2 = 330.00 
+                    case 3 : 
                         console.log(`---Dados da compra---
-     Nome do Cliente: ${nome}
-     Etapa do Jogo: ${etapaJogo} Semi Finais
-     Categoria: ${categoria}
-     Quantidade de ingresso: ${quantidadeIngresso}
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Decisão terceiro lugar
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
            ---Valores---
-     Valor do Ingresso R$${valorIngressoDt2}
-     Valor total = R$${quantidadeIngresso * valorIngressoDt2}
+Valor do Ingresso R$${precoTicket.dt3}
+Valor total = R$${quantidadeIngresso * precoTicket.dt3}
                             `)
                         break
-                }
+                        case 4 : 
+                        console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Decisão terceiro lugar
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+      ---Valores---
+Valor do Ingresso R$${precoTicket.dt4}
+Valor total = R$${quantidadeIngresso * precoTicket.dt4}
+                            `)
+                        break
+                }break
+                case 'FI':
+                    switch (categoria){
+                        case 1 : 
+                            console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Final
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+               ---Valores---
+Valor do Ingresso R$${precoTicket.fi1}
+Valor total = R$${quantidadeIngresso * precoTicket.fi1}
+                                `)
+                            break
+                            case 2:
+                            console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Final
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+               ---Valores---
+Valor do Ingresso R$${precoTicket.fi2}
+Valor total = R$${quantidadeIngresso * precoTicket.fi2}
+                                `)
+                            break
+        
+                            case 3 : 
+                                console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Final
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+                   ---Valores---
+Valor do Ingresso R$${precoTicket.fi3}
+Valor total = R$${quantidadeIngresso * precoTicket.fi3}
+                        `)
+                                break
+                                case 4 : 
+                                console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Final
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+                   ---Valores---
+Valor do Ingresso R$${precoTicket.fi4}
+Valor total = R$${quantidadeIngresso * precoTicket.fi4}
+                                    `)
+                                break
+                        }
             }
 
+    } else if (jogo.tipoJogo === 'IN') {
+        switch (jogo.etapaJogo){
+            case 'SF':
+                switch (categoria){
+                    case 1 :
+                        console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Semi Finais
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+       ---Valores---
+Valor do Ingresso R$${precoTicket.sf1 * 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.sf1* 4.10}
+                            `)
+                        break
+                        case 2 :
+                        console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Semi Finais
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+       ---Valores---
+Valor do Ingresso R$${precoTicket.sf2* 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.sf2* 4.10}
+                            `)
+                        break
+                        case 3 : 
+                        console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${etapaJogo} Semi Finais
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+           ---Valores---
+Valor do Ingresso R$${precoTicket.sf3* 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.sf3* 4.10}
+                            `)
+                        break
+                        case 4 : 
+                        console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Semi Finais
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+           ---Valores---
+Valor do Ingresso R$${precoTicket.sf4* 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.sf4* 4.10}
+                            `)
+                        break
+                         }break
+           case 'DT':
+                switch (categoria){
+                    case 1 : 
+                        console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Decisão terceiro lugar
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+      ---Valores---
+Valor do Ingresso R$${precoTicket.dt1* 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.dt1* 4.10}
+                            `)
+                        break
+                        case 2:
+                        console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Decisão terceiro lugar
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+           ---Valores---
+Valor do Ingresso R$${precoTicket.dt2* 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.dt2* 4.10}
+                            `)
+                        break
+    
+                        case 3 : 
+                            console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Decisão terceiro lugar
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+         ---Valores---
+Valor do Ingresso R$${precoTicket.dt3* 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.dt3* 4.10}
+                                `)
+                            break
+                            case 4 : 
+                            console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Decisão terceiro lugar
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+            ---Valores---
+Valor do Ingresso R$${precoTicket.dt4* 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.dt4* 4.10}
+                                `)
+                                break
+                    }break
+                    case 'FI':
+                        switch (categoria){
+                            case 1 : 
+                                console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Final
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+                   ---Valores---
+Valor do Ingresso R$${precoTicket.fi1* 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.fi1* 4.10}
+                                    `)
+                                break
+                                case 2:
+                                console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Final
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+           ---Valores---
+Valor do Ingresso R$${precoTicket.fi2* 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.fi2* 4.10}
+                                    `)
+                                break
+            
+                                case 3 : 
+                                    console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Final
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+               ---Valores---
+Valor do Ingresso R$${precoTicket.fi3* 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.fi3* 4.10}
+                                        `)
+                                    break
+                                    case 4 : 
+                                    console.log(`---Dados da compra---
+Nome do Cliente: ${nome}
+Tipo do Jogo: ${jogo.tipoJogo} Doméstico
+Etapa do Jogo: ${jogo.etapaJogo} Final
+Categoria: ${categoria}
+Quantidade de ingresso: ${quantidadeIngresso}
+                       ---Valores---
+Valor do Ingresso R$${precoTicket.fi4* 4.10}
+Valor total = R$${quantidadeIngresso * precoTicket.fi4* 4.10}
+                                        `)
+                                    break
+                            }
+                }
+    
+
     }
-
-
-
 
