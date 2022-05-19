@@ -166,19 +166,58 @@
      
 //      c) Quando o segundo jogador acertar o número escolhido pelo primeiro jogador, deve ser impressa a mensagem: `Acertou` ; e, embaixo, `O número de tentativas foi : <quantos chutes o usuário deu>`
 
+// const jogo = () => {
+//     let tentativas = 0
+
+//     const inicio = confirm("vamos jogar")
+// if (inicio === true){
 
 // let escolhaJogador = Number(prompt("Escolha um Número:"))
-// console.log("vamos jogar")
-// let i = 0
-// let chute= Number(prompt("tente acertar"))
+// let chute = escolhaJogador +1 
 
-// const jogar= () => {
-// for (i of escolhaJogador){
-//   chute= Number(prompt("tente acertar"))
-// if (escolhaJogador > chute ){
+// while (escolhaJogador !== chute){
+//   chute= Number(prompt("tente acertar:"))
+// if (escolhaJogador < chute ){
 //     console.log ("Número menor")
-// }else if ( escolhaJogador < chute){
+// }else if ( escolhaJogador > chute){
 //   console.log ("Número é maior")
+// }else{ console.log("Você acertou")
 // }
+// tentativas = tentativas + 1
 // }
+
 // }
+// console.log (`Números de tentativas foi: ${tentativas}`)
+// }
+
+// jogo()
+
+
+//2-
+
+
+// const jogo2 = () => {
+//     let tentativas = 0
+
+//     const inicio = confirm("vamos jogar")
+// if (inicio === true){
+
+// let escolhaJogador = Math.floor((Math.random() * 100)+1)
+// let chute = escolhaJogador +1 
+
+// while (escolhaJogador !== chute){
+//   chute= Number(prompt("tente acertar:"))
+// if (escolhaJogador < chute ){
+//     console.log ("Número menor")
+// }else if ( escolhaJogador > chute){
+//   console.log ("Número é maior")
+// }else{ console.log("Você acertou")
+// }
+// tentativas = tentativas + 1
+// }
+
+// }
+// console.log (`Números de tentativas foi: ${tentativas}`)
+// }
+
+// jogo2()
