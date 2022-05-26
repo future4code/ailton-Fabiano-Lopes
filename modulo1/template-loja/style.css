@@ -1,0 +1,67 @@
+
+
+/* Formatação do menu */
+.menu{
+    display: block;
+    font-size: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.menu a:hover{
+    background-color: rgb(97, 97, 239);
+    color: white;
+    text-decoration: underline;
+    transition: 1s;
+}
+
+/* Formatação add-produto */
+
+.prod {
+    margin: 0px;
+    text-align: justify;
+    padding: 16px;
+}
+#botao{
+    border-radius: 3px;
+    font-size: 16px;
+    margin: 10px;
+    padding: 4px;
+}
+
+/* formatação funcionários */
+
+
+.funcionarios th  {
+   border: 1px solid black;
+   border-radius: 2px;    
+    font-size: 16px;
+    text-align: center;
+}
+/* formatação controle de estoque */
+.table-Lista  {
+    border: 1px solid black;
+    border-radius: 2px;    
+     font-size: 16px;
+     text-align: center;
+ }
+
+ /* formatação do index */
+#cabecalho{
+    font-size: 30px;
+    color: blue;
+    text-align: center;
+}
+
+ #text-inicial{
+    font-size: 16px;
+    text-align: justify;
+}
+
+
+ #rodape{
+    margin-top: 200px;   
+}

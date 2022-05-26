@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adicionar Produto</title>
     <link rel="shortcut icon" href="../template-loja/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <p>Bugigangas S.A</p>
+        <h1 id="cabecalho">Bem-vindo ao <em>Bugigangas S.A</em>!</h1>
     </header>
     
-    <nav>
+    <nav class="menu">
         <a href="./index.html">Página Inicial</a>
         <a href="./ctrl-estoque.html">Controle de Estoque</a>
         <a href="./add-produto.html">Adicionar Produto</a>
@@ -21,29 +22,35 @@
 
     
     <h2>Adicionar Produto</h2>
-    <form action="">
-            <label for="link-foto">Link para foto: </label>
+    <form action="" >
+            <label for="link-foto" class="prod">Link para foto: </label>
             <input type="url" id="link-foto" name="link-foto">
             <br>
      
-            <label for="descricao">Descrição do produto: </label>
+            <label for="descricao" class="prod">Descrição do produto: </label>
             <!-- Adicione o id apropriado para o input abaixo -->
             <input type="text" id="descricao" name="descrição">
             <br>
-            <label for="preco">Preço (em R$): </label>
+            <label for="preco" class="prod">Preço (em R$): </label>
             <!-- Adicione o id apropriado e o type para receber números abaixo -->
             <input type="number" id="preco" name="preço">
             <br>
 
             <!-- Preencha as propriedades necessárias para os elementos abaixo -->
-            <label>Quantidade disponível: </label>
+            <label class="prod">Quantidade disponível: </label>
             <input>
 
             <br>
             <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-            <button type="submit">Adicionar</button>
-
+            <input type="button" value="Adicionar" id="botao">
     </form>
+
+    <footer id="rodape" >Copyright &copy; 2022 - by Fabiano Cunha Lopes <br />
+        <a href="https://www.facebook.com/fabianoclopes/" target="_blank"> <img id="facebook"
+                src="../template-loja/img/facebook.jpg"> Facebook</a> |
+        <a href="https://www.instagram.com/fabianoclopes/" target="_blank"> <img src="../template-loja/img/instagram.png">
+            Instagram</a>
+    </footer>
 
 </body>
 </html>
