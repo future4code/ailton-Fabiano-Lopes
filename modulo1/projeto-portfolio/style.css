@@ -1,105 +1,140 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Formatação div central */
-#div-center{
-    background: url(./img/2665291.jpg )no-repeat;
-    width: 95vw;
-    height: 60vw;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: white;
+#corpo {
+  background: url(./img/2665291.jpg) no-repeat;
+  width: auto;
+  height: auto;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: white;
+  display: block;
 }
 /* Formatação Menu */
-.menu{
-    display: block;
+.menu {
+  display: block;
 }
 
 nav#menu ul {
-    list-style: none;
-    text-transform: uppercase;
-    position: fixed;
-
-    top: -20px;
-    left: 1100px;
+  list-style: none;
+  text-transform: uppercase;
+  position: fixed;
+  top: auto;
+  left: 65vw;
 }
 
 nav#menu li {
-    display: inline-block;
-    background-color: #dddddd90;
-    padding: 10px;
-    margin: 20px 0px;
-    transition: background-color 1s;
-
-
+  display: inline-block;
+  background-color: #dddddd90;
+  padding: 10px;
+  margin: 20px 0px;
+  transition: background-color 1s;
 }
 
 nav#menu li:hover {
-
-    background-color: #606060;
+  background-color: #606060;
 }
 
-
-
 nav#menu a {
-
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 nav#menu a:hover {
-
-    color: white;
-    text-decoration: underline;
+  color: white;
+  text-decoration: underline;
+}
+/* Formatação rodape */
+#rodape {
+  text-align: center;
+  margin-top: 30vw;
+  display: block;
 }
 
+/* Formatação index */
+#nome {
+  text-align: center;
+  padding: 100px;
+}
+#esquerda {
+  width: 50%;
+  text-align: justify;
+  display: inline-block;
+}
+
+#direita {
+  float: right;
+  width: 50%;
+  padding: 1px 20px 0 20px;
+  text-align: justify;
+}
+
+#img-ling-center {
+  text-align: center;
+}
+#img-ling {
+  height: 98px;
+  width: 173px;
+}
+
+.h1-tit {
+  text-align: center;
+  background-color: #606060;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+/* Formataçãp sobre */
 /* Formatação foto */
-
-
-#foto{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+#foto {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 100px;
 }
 
 /* Formatação div da foto */
 
-#div-foto{
-    display: block;
-    text-align: center;
-    padding: 10px;
-    
+#div-foto {
+  display: block;
+  text-align: center;
+  padding: 10px;
 }
 
 /* Formatação Header */
 
-#header-nome{
-    text-align: center;
-    padding: 30px;
-    
+#header-nome {
+  text-align: center;
+  padding: 30px;
 }
 
 /* Formatação div sobre */
-#div-text{
-text-align: center;
-padding: 20px;
+#div-text {
+  text-align: center;
+  padding: 20px;
 }
 
+/*  Formatação Página projetos */
 
- /* Formatação rodape */
- #rodape{
-     text-align: center;
-     margin-top: 250px;
- }
-
- /* Formatação de imagens linguagens */
-#div-ling{
-    text-align: center;
-    margin-top: 50px;
-}
-#fotoLing{
-    width: 335px;
+.img-projeto{
     height: 200px;
+    width: 315px;
+  
+}
+
+.projetos{
+    display: inline-block;
+    margin: 0px 0px;
+   text-align: center;
+    padding: 2px;
+    margin-left: 100px;
+}
+
+#text-proj{
+    text-align: center;
+    padding: 200px 0px 50px 0px;
+    font-size: 25px;
 }
