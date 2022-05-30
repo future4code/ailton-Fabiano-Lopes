@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Formatação cabeçalho */
+header{
+    display: flex;
+    background-color: mediumvioletred;
+    align-items: center;
+    font-size: 20px;
+    flex-direction: row;
+  
+}
+img#img-cabeca{
+    height: 30px;
+    width: 30px;
+}
+div.botao-log{
+  display: flex;
+
+  justify-content: flex-end;
+  flex-grow: 2;
+}
+/* formatação da secção */
+#container{
+    display: flex;
+    min-height: 100vh;
+   
+    
+}
+/* Formatação da coluna */
+
+#column{
+    background-color: #f2d0e0;
+    display: flex;
+    width: 15vw;
+    /* height: 100vw; */
+    flex-direction: column;
+  
+    
+}
+.item-lista{
+    display: flex;
+    gap: 8px;
+}
+
+.img-coluna{
+    width: 20px;
+    height: 20px;
+}
+.img-coluna1{
+    width: 15px;
+    height: 15px;
+    
+   
+}
+/* Formatação do article */
+
+
+#corpo-site{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    
+}
+.card{
+    display: flex;
+    flex-direction: column; 
+    width: 200px;
+    border: 1px solid darkgray;
+   
+}
+
+.img-bolo{
+    width: 200px;
+    height: 200px;
+}
