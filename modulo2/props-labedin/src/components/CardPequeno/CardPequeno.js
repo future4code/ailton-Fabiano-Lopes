@@ -1,7 +1,7 @@
 import React from 'react'
 import style from 'styled-components'
 
-const smallcardContainer = style.div`
+const SmallcardContainer = style.div`
 
   display: flex;
   align-items: center;
@@ -11,7 +11,7 @@ const smallcardContainer = style.div`
   height: 60px;
   `
 
-const smallcardImg = style.img`
+const SmallcardImg = style.img`
 width: 40px;
 padding: 5px;
 `
@@ -20,12 +20,12 @@ padding: 5px;
 
 const CardPequeno = (props) => {
   return (
-    <smallcardContainer>
-        <smallcardImg src={props.imagem}/>
+    <SmallcardContainer>
+        <SmallcardImg src={props.imagem}/>
         <div><h4>
             {props.endereco}</h4></div>
 
-    </smallcardContainer>
+    </SmallcardContainer>
   )
 }
 
