@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import ImgCarta from "./img/whatsapp.png";
+import Mensagem from "./componentes/Mensagem";
 
 const MainContainer = styled.div`
   display: grid;
@@ -15,11 +16,25 @@ const Header = styled.div`
   text-align: center;
   color: beige;
 `;
+
+const CorpoWhatsEu = styled.div`
+  border-radius: 10px;
+`;
+const CorpoWhatsOutros = styled.div`
+  display: flex;
+  margin-right: auto;
+  border-radius: 10px;
+`;
 const CorpoWhats = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: end;
   background-color: #f8f8f8;
   grid-area: 2/3/15/6;
-  color: white;
+  color: blue;
   border: 1px solid black;
+  overflow: auto;
 `;
 const InputWhats = styled.div`
   background-color: #f0f2f5;
@@ -51,10 +66,12 @@ const InputMensagem = styled.input`
   margin: 0px 8px;
   border-radius: 6px;
   background-color: #f0f2f5;
+  height: 4vh;
 `;
 const InputUsuario = styled.input`
   background-color: #f0f2f5;
   width: 10vw;
+  height: 4vh;
   border-radius: 6px;
 `;
 const ButtonEnviar = styled.button`
@@ -67,18 +84,25 @@ const ButtonEnviar = styled.button`
 
 class App extends React.Component {
   state = {
-    usuarios: ["Maria", "João", "Gustavo", "Mateus", "João Pedro", "Eduardo"],
-
+    post: [],
     mensagem: "",
     usuario: "",
+    usuarioLeft: "",
   };
 
-  addMensagem = () => {
-    const newPost = {
-      mensagem: this.mensagem,
-      usuario: this.usuario,
-    };
+  newPost = () => {
+    const addMensagem = [...this.state.post];
+    addMensagem.push({
+      mensagem: this.state.mensagem,
+      usuario: this.state.usuario,
+    });
+    this.setState({
+      post: [...addMensagem],
+    });
+    this.setState({ mensagem: "" });
+    this.setState({ usuario: "" });
   };
+
   onchangeMensagem = (event) => {
     this.setState({ mensagem: event.target.value });
   };
@@ -87,6 +111,30 @@ class App extends React.Component {
   };
 
   render() {
+    const MsnUser = this.state.post.map((item, index) => {
+      if (item.usuario === "eu" || item.usuario === "Eu") {
+        return (
+          <CorpoWhatsEu>
+            {" "}
+            <Mensagem
+              usuario={item.usuario}
+              mensagem={item.mensagem}
+              key={index}
+            />
+          </CorpoWhatsEu>
+        );
+      } else {
+        return (
+          <CorpoWhatsOutros>
+            <Mensagem
+              usuario={item.usuario}
+              mensagem={item.mensagem}
+              key={index}
+            />
+          </CorpoWhatsOutros>
+        );
+      }
+    });
     return (
       <MainContainer>
         <Header>
@@ -96,7 +144,7 @@ class App extends React.Component {
             WhatsLab
           </h1>
         </Header>
-        <CorpoWhats>{this.newPost}</CorpoWhats>
+        <CorpoWhats>{MsnUser}</CorpoWhats>
         <InputWhats>
           <InputUsuario
             placeholder="Usuário"
@@ -108,15 +156,21 @@ class App extends React.Component {
             value={this.state.mensagem}
             onChange={this.onchangeMensagem}
           />
-          <ButtonEnviar onClick={"newPost"}>Enviar</ButtonEnviar>
+          <ButtonEnviar onClick={this.newPost}>Enviar</ButtonEnviar>
         </InputWhats>
         <Usuarios>
-          <UsuarioDiv onClick={""}>Maria</UsuarioDiv>
-          <UsuarioDiv onClick={""}>João</UsuarioDiv>
-          <UsuarioDiv onClick={""}>Gustavo</UsuarioDiv>
-          <UsuarioDiv onClick={""}>Mateus</UsuarioDiv>
-          <UsuarioDiv onClick={""}>João Pedro</UsuarioDiv>
-          <UsuarioDiv onClick={""}>Eduardo</UsuarioDiv>
+          <UsuarioDiv
+            onClick={this.userLeft}
+            className="usuarioEsquerda"
+            value="Maria"
+          >
+            Maria
+          </UsuarioDiv>
+          <UsuarioDiv>João</UsuarioDiv>
+          <UsuarioDiv>Gustavo</UsuarioDiv>
+          <UsuarioDiv>Mateus</UsuarioDiv>
+          <UsuarioDiv>João Pedro</UsuarioDiv>
+          <UsuarioDiv>Eduardo</UsuarioDiv>
         </Usuarios>
       </MainContainer>
     );
