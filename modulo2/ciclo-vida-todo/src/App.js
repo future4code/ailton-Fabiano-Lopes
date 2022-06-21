@@ -27,10 +27,9 @@ class App extends React.Component {
         completa: false,
       },
       {
-        id: Date.now(), // Explicação abaixo
+        id: Date.now(), 
         texto: "",
-        completa: true, // Indica se a tarefa está completa (true ou false)
-      },
+        completa: true, 
     ],
     inputValue: "",
     filtro: "",
