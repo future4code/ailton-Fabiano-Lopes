@@ -145,9 +145,13 @@ const pokemons = [
 
 // b) Resposta
 
-const pokTipo = pokemons.map((pok1)=>{
-    return pok1.tipo
-}).filter((elem,index,self)=> {
-    return index == self.indexOf(elem)
-})
-console.log(pokTipo)
+// <<<<<<< lista-revisao
+// const pokTipo = pokemons.map((pok1)=>{
+//     return pok1.tipo
+// }).filter((elem,index,self)=> {
+//     return index == self.indexOf(elem)
+// })
+// =======
+// const pokTipo = pokemons.map((pok1)=>{return pok1.tipo}).filter((elem,index,self)=> {return index == self.indexOf(elem)})
+// >>>>>>> master
+// console.log(pokTipo)
