@@ -2,58 +2,32 @@ import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 const Container = styled.div`
-  display: grid;
-  justify-items: center;
+  h2 {
+    margin-left: 350px;
+  }
+  input {
+    width: 150px;
+  }
 `;
-// const Card = styled.div`
-//   color: white;
-// `;
 class CardMusicas extends React.Component {
   state = {
-    ListMusica: ["inicio"],
+    ListMusica: [],
     nome: "",
     artista: "",
-    url: [
-      "http://spoti4.future4.com.br/1.mp3",
-      "http://spoti4.future4.com.br/2.mp3",
-      "http://spoti4.future4.com.br/3.mp3",
-      "http://spoti4.future4.com.br/4.mp3",
-      "http://spoti4.future4.com.br/5.mp3",
-      "http://spoti4.future4.com.br/6.mp3",
-      "http://spoti4.future4.com.br/7.mp3",
-      "http://spoti4.future4.com.br/8.mp3",
-      "http://spoti4.future4.com.br/9.mp3",
-      "http://spoti4.future4.com.br/10.mp3",
-      "http://spoti4.future4.com.br/11.mp3",
-      "http://spoti4.future4.com.br/12.mp3",
-      "http://spoti4.future4.com.br/13.mp3",
-      "http://spoti4.future4.com.br/14.mp3",
-      "http://spoti4.future4.com.br/15.mp3",
-      "http://spoti4.future4.com.br/16.mp3",
-      "http://spoti4.future4.com.br/17.mp3",
-      "http://spoti4.future4.com.br/18.mp3",
-      "http://spoti4.future4.com.br/19.mp3",
-      "http://spoti4.future4.com.br/20.mp3",
-    ],
+    url: "",
+    musicDetail: {},
   };
-  //   getListMusic = () => {
-  //     axios
-  //       .get(
-  //         "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
-  //         {
-  //           headers: {
-  //             Authorization: "fabiano-lopes-ailton",
-  //           },
-  //         }
-  //       )
-  //       .then((response) => {
-  //         console.log(response.data);
-  //         this.setState({ ListMusicTela: response.data.result.list });
-  //       })
-  //       .catch(() => {
-  //         alert("Ocorreu um erro, tente novamente");
-  //       });
-  //   };
+
+  onChangeNome = (event) => {
+    this.setState({ nome: event.target.value });
+  };
+  onChangeArtista = (event) => {
+    this.setState({ artista: event.target.value });
+  };
+  onChangeUrl = (event) => {
+    this.setState({ url: event.target.value });
+  };
+
   addMusic = (id) => {
     const body = {
       name: this.state.nome,
@@ -71,24 +45,30 @@ class CardMusicas extends React.Component {
         }
       )
       .then((response) => {
-        // console.log(response);
-        this.getListMusic();
-        alert("Play Lista Criada");
-        this.setState({
-          nome: "",
-        });
+        console.log(response.data);
+        alert("Música Criada");
       })
       .catch(() => {
-        alert("Erro. Play Lista existente");
+        alert("Erro. Música existente");
       });
   };
+
   render() {
     return (
       <Container>
         <h2>Musicas:</h2>
-        {this.state.ListMusica.sort().map((listaMusicas) => {
-          return <div key={listaMusicas.id}> {listaMusicas.name} </div>;
-        })}
+        Artista ou banda <input onChange={this.onChangeArtista} /> Nome da
+        Música <input onChange={this.onChangeNome} />
+        Url <input onChange={this.onChangeUrl} />{" "}
+        <button onClick={() => this.addMusic(this.props.idSelect)}>
+          Adicionar
+        </button>
+        <div>
+          {" "}
+          {this.state.ListMusica.map((listaMusicas) => {
+            return <div key={listaMusicas.id}> {listaMusicas.name} </div>;
+          })}
+        </div>
       </Container>
     );
   }

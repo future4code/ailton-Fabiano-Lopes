@@ -7,7 +7,9 @@ class MenuComponent extends React.Component {
   render() {
     return (
       <Container>
-        <MenuDiv>Menu</MenuDiv>
+        <MenuDiv>
+          <h1> LabeFY</h1>
+        </MenuDiv>
       </Container>
     );
   }

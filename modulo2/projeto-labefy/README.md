@@ -1,3 +1,19 @@
+# Funcionando no site
+
+Botão adicionar a PlayList
+Botão adicionar Músicas a playlist
+botão excluir Playlist
+Visualização da Playlist
+Visualização das Musicas dentro da PLaylist
+
+# Não funciona
+
+Botão excluir Músicas
+
+# Visual do site
+
+<img src= "src\img\tela-site.png">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
