@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Inicio from "./pages/Inicio";
+import Match from "./pages/Match";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App(props) {
+  const [tela, setTela] = useState("inicio");
+  const mudaInicioPage = () => {
+    setTela("inicio");
+  };
+  const mudaMatchPage = () => {
+    setTela("match");
+  };
+
+  const onScrenn = () => {
+    switch (tela) {
+      case "inicio":
+        return (
+          <Inicio
+            mudaInicioPage={mudaInicioPage}
+            mudaMatchPage={mudaMatchPage}
+          />
+        );
+      case "match":
+        return (
+          <Match
+            mudaInicioPage={mudaInicioPage}
+            mudaMatchPage={mudaMatchPage}
+          />
+        );
+      default:
+        return <Inicio mudaInicioPage={mudaInicioPage} />;
+    }
+  };
+
+  return <div>{onScrenn()}</div>;
 }
-
-export default App;
