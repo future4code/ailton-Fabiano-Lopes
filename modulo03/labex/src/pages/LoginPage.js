@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { BASE_URL } from "../constants/constants";
+import { BASE_URL } from "../constants/Urls";
 export default function Login(props) {
   const [inputEmailValue, setInputEmailValue] = useState("");
   const [inputPasswordValue, setInputPasswordValue] = useState("");

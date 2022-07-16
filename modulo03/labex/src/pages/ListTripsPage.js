@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRequestData } from "../Hook/useRequestData";
-import { BASE_URL } from "../constants/constants";
+import { BASE_URL } from "../constants/Urls";
 export default function ListTrips() {
   const [Travel, isLoading, error] = useRequestData(`${BASE_URL}/trips`);
 

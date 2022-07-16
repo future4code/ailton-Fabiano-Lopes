@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { BASE_URL } from "../constants/constants";
+import { BASE_URL } from "../constants/Urls";
 import { useProtectedPage } from "../constants/useProtectPage";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useRequestData } from "../Hook/useRequestData";
 
 export default function Admin() {
   useProtectedPage();
@@ -15,29 +15,44 @@ export default function Admin() {
     navigate(-1);
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
+  const goToCreateTrips = () => {
+    navigate("/admin/trips/create");
+  };
+  const goToTripDetail = (id) => {
+    navigate(`/admin/trip/${id}`);
+  };
+  const [Travel] = useRequestData(`${BASE_URL}/trips`);
+
+  const buttonExcluir = (id, trips) => {
     axios
-      .get(
-        `${BASE_URL}/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkNmbjZPd0YyOVU5TDJSYzV0UWo1IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1NzMxNDM4Njh9.mmOrfGKlXpE3pIDUZfS3xV5ZwttOI2Exmoci9Sdsxjs`,
-        {
-          headers: {
-            auth: token,
-          },
-        }
-      )
-      .then((response) => {
-        console.log(response.data);
+      .delete(`${BASE_URL}/trips/${id}`, {
+        headers: { auth: localStorage.getItem("token") },
       })
-      .catch((error) => {
-        console.log("Deu erro: ", error.response);
-      });
-  }, []);
+      .then((response) => {
+        console.log(response);
+        alert("Viagem deletada com sucesso!");
+        // trips();
+      })
+      .catch((error) => alert(error.response.data.message));
+  };
+
   return (
     <div>
-      AdminHomePage
+      <h1> AdminHomePage</h1>{" "}
+      <div>
+        {Travel &&
+          Travel.map((trip) => {
+            return (
+              <div onClick={() => goToTripDetail(trip.id)} key={trip.id}>
+                {trip.name}
+                <button onClick={() => buttonExcluir(trip.id)}>Excluir</button>
+              </div>
+            );
+          })}
+      </div>
       <button onClick={goToBackPage}>voltar</button>
       <button onClick={goToHomePage}>Home</button>
+      <button onClick={goToCreateTrips}>Criar Viagem</button>
     </div>
   );
 }

@@ -1,28 +1,34 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { BASE_URL } from "../constants/constants";
+import { useEffect, useState } from "react";
+import { BASE_URL } from "../constants/Urls";
 import { useProtectedPage } from "../constants/useProtectPage";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const TripDetails = () => {
   useProtectedPage();
-
+  const [tripState, setTripState] = useState({});
+  const pathParams = useParams();
+  const navigate = useNavigate();
+  console.log(pathParams);
   useEffect(() => {
-    const token = localStorage.getItem("token");
     axios
-      .get(
-        `${BASE_URL}/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkNmbjZPd0YyOVU5TDJSYzV0UWo1IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1NzMxNDM4Njh9.mmOrfGKlXpE3pIDUZfS3xV5ZwttOI2Exmoci9Sdsxjs`,
-        {
-          headers: {
-            auth: token,
-          },
-        }
-      )
+      .get(`${BASE_URL}/trip/${pathParams.id} `, {
+        headers: { auth: localStorage.getItem("token") },
+      })
       .then((response) => {
-        console.log(response.data);
+        setTripState(response.data.trip);
+        console.log(response.data.trip);
       })
       .catch((error) => {
-        console.log("Deu erro: ", error.response);
+        console.log("deu ruim", error);
       });
   }, []);
-  return <div>Detalhes da viagem!!!</div>;
+  return (
+    <div>
+      <h1>Detalhes da viagem!!!</h1>
+      <div key={tripState.id}>
+        Nome: {tripState.name} {tripState.planet}{" "}
+      </div>
+    </div>
+  );
 };

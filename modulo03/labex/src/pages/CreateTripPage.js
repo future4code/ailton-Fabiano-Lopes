@@ -1,32 +1,98 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { BASE_URL } from "../constants/constants";
+import { useState } from "react";
+import { BASE_URL } from "../constants/Urls";
 import { useProtectedPage } from "../constants/useProtectPage";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function CreateTripPage() {
   useProtectedPage();
+  const navigate = useNavigate();
+  const goToHomePage = () => {
+    navigate("/");
+  };
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
+  const goToBackPage = () => {
+    navigate(-1);
+  };
+  const [form, setForm] = useState({
+    name: "",
+    planet: "",
+    date: "",
+    description: "",
+    durationInDays: undefined,
+  });
+
+  const onChange = (event) => {
+    const { name, value } = event.target;
+    setForm({ ...form, [name]: value });
+  };
+  const buttonCreate = (event) => {
+    event.preventDefault();
     axios
-      .get(
-        `${BASE_URL}/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkNmbjZPd0YyOVU5TDJSYzV0UWo1IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1NzMxNDM4Njh9.mmOrfGKlXpE3pIDUZfS3xV5ZwttOI2Exmoci9Sdsxjs`,
-        {
-          headers: {
-            auth: token,
-          },
-        }
-      )
+      .post(`${BASE_URL}/trips/`, form, {
+        headers: {
+          auth: localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
+        alert("Viagem Criada com sucesso!");
         console.log(response.data);
       })
       .catch((error) => {
         console.log("Deu erro: ", error.response);
       });
-  }, []);
+  };
   return (
     <div>
       <h1>CreatePage</h1>
+
+      <form onSubmit={buttonCreate}>
+        <input
+          placeholder="Nome"
+          name="name"
+          value={form.name}
+          onChange={onChange}
+        />
+        <select name="planet" value={form.planet} onChange={onChange}>
+          <option value="" data-default disabled selected={undefined}>
+            Escolha um Planeta
+          </option>
+          <option>Mercúrio</option>
+          <option>Vênus</option>
+          <option>Terra</option>
+          <option>Marte</option>
+          <option>Júpiter</option>
+          <option>Saturno</option>
+          <option>Urano</option>
+          <option>Netuno</option>
+          <option>Plutão</option>
+        </select>
+        <input
+          type={"date"}
+          name="date"
+          value={form.date}
+          onChange={onChange}
+        />
+        <input
+          placeholder="Descrição"
+          name="description"
+          value={form.description}
+          onChange={onChange}
+        />
+        <input
+          type={"number"}
+          placeholder="Duração em dias"
+          name="durationInDays"
+          // value={form.durationInDays}
+          onChange={onChange}
+          pattern="-?(\\d+|\\d{1,3}(\\.\\d{3})*)(,\\d+)? "
+          min="50"
+        />
+        <button>Criar</button>
+      </form>
+
+      <button onClick={goToBackPage}>Voltar</button>
+      <button onClick={goToHomePage}>Home</button>
     </div>
   );
 }
