@@ -2,6 +2,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRequestData } from "../Hook/useRequestData";
 import { BASE_URL } from "../constants/Urls";
+import loadinImg from "../img/loading.gif";
+import { Container } from "../css/homeCss";
+import {
+  DivButtonsList,
+  ListDiv,
+  ListTravel,
+  MenuBarList,
+} from "../css/listTripCss";
 export default function ListTrips() {
   const [Travel, isLoading, error] = useRequestData(`${BASE_URL}/trips`);
 
@@ -11,13 +19,13 @@ export default function ListTrips() {
   };
 
   const goToAplicationPage = () => {
-    navigate("/Trips/Aplication");
+    navigate("/Trips/Aplication/:id");
   };
   const listTravel =
     Travel &&
     Travel.map((trip) => {
       return (
-        <div key={trip.id}>
+        <ListTravel key={trip.id}>
           <strong> Nome: </strong> {trip.name}
           <strong> Descrição: </strong> {trip.description}
           <strong> Planeta: </strong>
@@ -26,23 +34,27 @@ export default function ListTrips() {
           {trip.durationInDays} dias
           <strong> Data: </strong>
           {trip.date}{" "}
-        </div>
+        </ListTravel>
       );
     });
   return (
-    <div>
-      <button onClick={goToBackPage}>voltar</button>
-      <button onClick={goToAplicationPage}>Inscrever</button>
-      <h1>TravelsPage</h1>
-      <div>
+    <Container>
+      <MenuBarList>
+        <h1>Viagens</h1>
+      </MenuBarList>
+      <ListDiv>
         {" "}
-        {isLoading && <p>Carregando...</p>}
-        {!isLoading && error && <p>{error.message}</p>}
+        {isLoading && <img src={loadinImg} />}
+        {!isLoading && error && <p>{error.message}</p>}{" "}
         {!isLoading && Travel && Travel.length > 0 && listTravel}
         {!isLoading && Travel && Travel.length === 0 && (
           <p>Não existe viagens neste momento</p>
         )}{" "}
-      </div>
-    </div>
+      </ListDiv>
+      <DivButtonsList>
+        <div onClick={goToBackPage}>voltar</div>
+        <div onClick={goToAplicationPage}>Inscrever</div>
+      </DivButtonsList>
+    </Container>
   );
 }

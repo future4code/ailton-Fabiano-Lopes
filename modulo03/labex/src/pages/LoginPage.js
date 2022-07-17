@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../constants/Urls";
+import {
+  ButtonsLogin,
+  ContainerLogin,
+  FormLogin,
+  Menulogin,
+} from "../css/loginCss";
 export default function Login(props) {
   const [inputEmailValue, setInputEmailValue] = useState("");
   const [inputPasswordValue, setInputPasswordValue] = useState("");
@@ -42,28 +48,36 @@ export default function Login(props) {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={buttonLogin}>
-        <input
-          type={"email"}
-          value={inputEmailValue}
-          onChange={inputEmail}
-          placeholder="e-mail"
-          required
-        />
-        <input
-          type={"password"}
-          placeholder="senha"
-          onChange={inputPassword}
-          value={inputPasswordValue}
-          required
-        />
-        <button>Login</button>
-        <br />
-      </form>
-      <button onClick={goToBackPage}>voltar</button>
-      <button onClick={goToHomePage}>Home</button>
-    </div>
+    <ContainerLogin>
+      <Menulogin>
+        {" "}
+        <h1>Login</h1>
+      </Menulogin>
+      <FormLogin>
+        <form onSubmit={buttonLogin}>
+          <input
+            type={"email"}
+            value={inputEmailValue}
+            onChange={inputEmail}
+            placeholder="e-mail"
+            required
+          />
+          <input
+            type={"password"}
+            placeholder="senha"
+            onChange={inputPassword}
+            value={inputPasswordValue}
+            required
+          />
+          <button>Login</button>
+          <br />
+        </form>
+      </FormLogin>
+      <ButtonsLogin>
+        {" "}
+        <div onClick={goToBackPage}>voltar</div>
+        <div onClick={goToHomePage}>Home</div>
+      </ButtonsLogin>
+    </ContainerLogin>
   );
 }

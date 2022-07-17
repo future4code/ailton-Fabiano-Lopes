@@ -17,7 +17,7 @@ export const Router = () => {
         <Route path="Trips/list" element={<ListTrips />} />
         <Route path="admin" element={<Admin />} />
         <Route path="error" element={<Error />} />
-        <Route path="Trips/Aplication" element={<Aplication />} />
+        <Route path="Trips/Aplication/:id" element={<Aplication />} />
         <Route path="/admin/trip/:id" element={<TripDetails />} />
         <Route path="/admin/trips/create" element={<CreatePage />} />
       </Routes>

@@ -1,18 +1,32 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Container, MenuBar, DivButtons, Footer } from "../css/homeCss";
 export default function Home() {
   const navigate = useNavigate();
   const goToListTripsPage = () => {
     navigate("/Trips/list");
   };
-  const goToLoginPage = () => {
-    navigate("/Login");
+  const goToAdminPage = () => {
+    navigate("admin");
   };
   return (
-    <div>
-      <h1>HomePage</h1>
-      <button onClick={goToListTripsPage}>Viagens</button>
-      <button onClick={goToLoginPage}>Área Admin</button>
-    </div>
+    <Container>
+      <MenuBar>
+        <h1>
+          Labe<a>X</a>
+        </h1>
+        <h4>Sua Melhor Viagem</h4>
+      </MenuBar>
+
+      <DivButtons>
+        {" "}
+        <div onClick={goToListTripsPage}>Viagens</div>
+        <div onClick={goToAdminPage}>Área Admin</div>
+      </DivButtons>
+      <Footer>
+        {" "}
+        <p>Copyright &copy; 2022 - FabianoLopes</p>
+      </Footer>
+    </Container>
   );
 }
