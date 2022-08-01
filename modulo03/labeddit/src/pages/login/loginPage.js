@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../../components/url/url";
+import { baseURL } from "../../components/url/url";
 import axios from "axios";
 import {
   BarraLogin,
   ContainerLogin,
+  Img1,
   Img1Login,
+  Img2,
+  Img3,
+  Img4,
   InputDiv,
   RegisteButton,
-  TitlteLogin,
 } from "./loginPageCss";
 
 export default function Login() {
@@ -25,10 +28,9 @@ export default function Login() {
       password: inputPasswordValue,
     };
     axios
-      .post(`${BASE_URL}/users/login`, body)
+      .post(`${baseURL}users/login`, body)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
-        console.log("Deu certo", response.data.token);
         navigate("feeds");
       })
       .catch((error) => {
@@ -43,10 +45,10 @@ export default function Login() {
   };
   return (
     <ContainerLogin>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <Img1></Img1>
+      <Img2></Img2>
+      <Img3></Img3>
+      <Img4></Img4>
       <h1>LabEddit</h1>
       <h3>O projeto de rede social da Labenu</h3>
       <InputDiv onSubmit={ButtonLogin}>

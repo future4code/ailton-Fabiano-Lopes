@@ -12,7 +12,7 @@ export const useRequestData = (url) => {
       .get(url)
       .then((res) => {
         setIsLoading(false);
-        setData(res.data.trips);
+        setData(res.data.posts);
       })
       .catch((err) => {
         setIsLoading(false);

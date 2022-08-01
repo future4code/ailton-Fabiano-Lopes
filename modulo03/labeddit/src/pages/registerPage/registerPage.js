@@ -4,8 +4,14 @@ import {
   InputDivRegister,
   InputBoxRegister,
   ContainerRegister,
+  Img1,
+  Img2,
+  Img3,
+  Img4,
+  ButtonEntrar,
+  HeaderDiv,
 } from "./registerPageCss";
-import { BASE_URL } from "../../components/url/url";
+import { baseURL } from "../../components/url/url";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
@@ -27,25 +33,29 @@ export default function Register() {
     event.preventDefault();
     const body = {
       username: form.username,
-      emil: form.email,
+      email: form.email,
       password: form.password,
     };
     axios
-      .post(`${BASE_URL}/users/signup`, body)
+      .post(`${baseURL}users/signup`, body)
       .then((response) => {
         alert("Usuário Criado");
-        console.log(response);
       })
       .catch((error) => {
         alert("Usário Existente, ou errado");
-        console.log(error);
       });
   };
   return (
     <ContainerRegister>
+      <HeaderDiv>
+        <Img1></Img1>
+        <Img2></Img2>
+        <Img3></Img3>
+        <Img4></Img4>
+        <ButtonEntrar onClick={goToLogin}>Entrar</ButtonEntrar>
+      </HeaderDiv>
       <h1>Olá Boas Vindas ao LabEddit ;)</h1>{" "}
-      <button onClick={goToLogin}>Entrar</button>
-      <InputDivRegister onClick={() => buttonCreateRegister}>
+      <InputDivRegister onSubmit={buttonCreateRegister}>
         <InputBoxRegister
           placeholder="Nome de usuário"
           required

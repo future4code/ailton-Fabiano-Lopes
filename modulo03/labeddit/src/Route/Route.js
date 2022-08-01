@@ -10,7 +10,7 @@ export const Router = () => {
         <Route index element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="feeds" element={<Feeds />} />
-        <Route path="posts" element={<Posts />} />
+        <Route path="/feeds/posts/:id" element={<Posts />} />
       </Routes>
     </BrowserRouter>
   );

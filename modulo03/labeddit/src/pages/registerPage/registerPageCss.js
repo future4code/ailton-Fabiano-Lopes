@@ -8,11 +8,10 @@ export const ContainerRegister = styled.div`
   h1 {
     width: 364px;
     height: 86px;
-    margin-top: 80px;
+    margin-top: 60px;
     margin-left: 32px;
     font-family: IBM Plex Sans;
     font-size: 30px;
-    /* line-height: 47px; */
   }
 
   h3 {
@@ -21,7 +20,7 @@ export const ContainerRegister = styled.div`
   }
 `;
 export const InputDivRegister = styled.form`
-  margin-top: 70px;
+  margin-top: 50px;
   button {
     display: flex;
     flex-direction: row;
@@ -47,4 +46,58 @@ export const InputBoxRegister = styled.input`
   border: 1px solid #d5d8de;
   margin-top: 6px;
   margin-left: 6px;
+`;
+export const Img1 = styled.div`
+  background-color: #fe7e02;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 45%;
+  right: 51.17%;
+  top: 0;
+  bottom: 81.1%;
+  border-radius: 100px 0 0 0;
+`;
+export const Img2 = styled.div`
+  position: absolute;
+  left: 49.5%;
+  right: 41.36%;
+  top: 0;
+  bottom: 81.1%;
+  background: #45525b;
+  width: 16px;
+  height: 16px;
+  border-radius: 100px 0 0 0;
+`;
+export const Img3 = styled.div`
+  position: absolute;
+  left: 45%;
+  right: 51.17%;
+  top: 2.4%;
+  bottom: 76.56%;
+  background: #f9b24e;
+  width: 16px;
+  height: 16px;
+  border-radius: 0 0 100px 0;
+`;
+export const Img4 = styled.div`
+  position: absolute;
+  left: 49.5%;
+  right: 41.36%;
+  top: 2.4%;
+  bottom: 76.56%;
+  background: #a8bbc6;
+  width: 16px;
+  height: 16px;
+  border-radius: 0 0 100px 0;
+`;
+export const ButtonEntrar = styled.button`
+  left: 82%;
+  top: 0;
+  position: absolute;
+`;
+export const HeaderDiv = styled.div`
+  background-color: #ededed;
+  width: 100vw;
+  height: 5vh;
 `;

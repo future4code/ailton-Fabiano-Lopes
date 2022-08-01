@@ -9,7 +9,7 @@ export const useProtectedPage = () => {
 
     if (token === null) {
       alert("Não está logado!!!");
-      navigate("/login");
+      navigate("/");
     }
   }, []);
 };

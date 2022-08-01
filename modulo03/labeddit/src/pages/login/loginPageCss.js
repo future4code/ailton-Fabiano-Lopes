@@ -7,7 +7,7 @@ export const ContainerLogin = styled.div`
   h1 {
     width: 152px;
     height: 47px;
-    margin-top: 128px;
+    margin-top: 105px;
     margin-left: 120px;
     font-family: IBM Plex Sans;
     font-size: 40px;
@@ -15,18 +15,12 @@ export const ContainerLogin = styled.div`
   }
 
   h3 {
-    margin-left: 80px;
+    color: #a8bbc6;
+    margin-top: -30px;
+    margin-left: 100px;
     font-size: 12px;
   }
 `;
-// export const Img1Login = styled.div`
-//   margin-left: 39.02%;
-//   margin-right: 51.17%;
-//   margin-top: 14.36%;
-//   bottom: 81.1%;
-//   width: 30px;
-//   background: #fe7e02;
-// `;
 
 export const InputDiv = styled.form`
   input {
@@ -62,7 +56,6 @@ export const BarraLogin = styled.div`
   height: 3px;
   margin-left: 20px;
   margin-top: 90px;
-  /* border: 20px solid linear-gradient(90deg, #ff6489 0%, #f9b24e 100%); */
   background: linear-gradient(90deg, #ff6489 0%, #f9b24e 100%);
 `;
 export const RegisteButton = styled.button`
@@ -73,4 +66,49 @@ export const RegisteButton = styled.button`
   margin-top: 120px;
   margin-left: 30px;
   border-radius: 30px;
+`;
+
+export const Img1 = styled.div`
+  background-color: #fe7e02;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 39.02%;
+  right: 51.17%;
+  top: 4.36%;
+  bottom: 81.1%;
+  border-radius: 100px 0 0 0;
+`;
+export const Img2 = styled.div`
+  position: absolute;
+  left: 49.7%;
+  right: 41.36%;
+  top: 4.36%;
+  bottom: 81.1%;
+  background: #45525b;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px 0 0 0;
+`;
+export const Img3 = styled.div`
+  position: absolute;
+  left: 39.02%;
+  right: 51.17%;
+  top: 10.35%;
+  bottom: 76.56%;
+  background: #f9b24e;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 0 100px 0;
+`;
+export const Img4 = styled.div`
+  position: absolute;
+  left: 49.7%;
+  right: 41.36%;
+  top: 10.35%;
+  bottom: 76.56%;
+  background: #a8bbc6;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 0 100px 0;
 `;
