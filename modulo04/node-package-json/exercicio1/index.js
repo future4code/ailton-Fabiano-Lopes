@@ -1,14 +1,23 @@
 // Exercício 1
 // A)
-console.log("Olá,", process.argv[2], "! Você tem", process.argv[3], "anos.");
-// B)
-const age = Number(process.argv[4]);
-console.log(
-  "Olá,",
-  process.argv[2],
-  "! Você tem",
-  process.argv[3],
-  "anos.",
-  "Em sete anos você terá",
-  Number(process.argv[3]) + age
-);
+const ageSoma = Number(process.argv[4]);
+const nameUser = process.argv[2];
+const age = Number(process.argv[3]);
+
+if (nameUser && age && ageSoma) {
+  console.log(
+    "%c Olá,",
+    nameUser,
+    "! Você tem",
+    age,
+    "anos.",
+    `Em ${ageSoma} anos você terá`,
+    age + ageSoma,
+    " background: green; color: white"
+  );
+} else {
+  console.log(
+    "%c Erro, dados inexistentes",
+    " background: green; color: white"
+  );
+}
