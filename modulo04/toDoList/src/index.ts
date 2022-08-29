@@ -102,7 +102,7 @@ app.delete("/user/:id", async (req: Request, res: Response) => {
     res.status(errorCode).send({ message: error.message });
   }
 });
-
+// Criar Tarefas
 app.post("/task", async(req:Request, res:Response)=>{
     const {idTable,titleTable, descriptionTable, dateTable, creatorUseId } = req.body
     console.log(idTable,titleTable, descriptionTable, dateTable, creatorUseId)
@@ -125,6 +125,8 @@ app.post("/task", async(req:Request, res:Response)=>{
         res.status(400).send({message:error.message})
     }
 })
+
+// Buscar uma unica tarefa por id
 app.get("/task/:id", async(req:Request, res:Response)=>{
     const tableId:number = Number(req.params.id)
     let errorCode = 400;
@@ -141,6 +143,11 @@ app.get("/task/:id", async(req:Request, res:Response)=>{
          res.status(errorCode).send({ message: error });
     }
 })
+
+// Pegar tarefas criadas por um usuário
+
+// app.get()
+
 app.listen(3003, () => {
   console.log("Server is Running...");
 });
